@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Selecionar elementos através de atributos</title>
+        
+        <style>
+			body { font-family:Arial, Helvetica, sans-serif; font-size:0.9em; }
+			li { padding:5px;margin-bottom:1px }
+			.vermelho { color:#F00 }
+			.verde { color:#096 }
+		</style>
+
+		<script src="jquery-3.6.0.min.js"></script>
+        <script>
+			$( function(e) {
+				$("li[class]").css("background-color","yellow"); // especifica
+                $("li[id][title]").css("background-color","beige"); // especifica ainda mais
+                $("li[id='texto1']").css("background-color","gray"); // restringe
+
+                $("li.vermelho").css("background-color","orange"); // outra maneira de restringir CLASSE
+                $("li#texto1").css("background-color","orange"); // outra maneira de restringir ID
+            });
+		</script>
+    </head>
+
+    <body>
+    	<ul>
+            <li class="vermelho">Curso HTML5 Essencial</li>
+            <li class="verde">Curso CSS3 Essencial</li>
+            <li id="texto1">Curso Javascript Essencial</li>
+            <li id="texto2" title="Esse Curso">Curso jQuery Fundamental</li>             
+    	</ul>
+    </body>
+</html>

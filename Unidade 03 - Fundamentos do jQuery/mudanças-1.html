@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Selecionar elementos através de seletores</title> 
+    </head>
+
+    <body>
+    	<nav>
+        	<a href="#">Brasil</a>
+            <a href="#">Argentina</a>
+            <a href="#">Uruguai</a>
+            <a href="#">Chile</a>
+        </nav>
+
+        <a href="#">Colômbia</a>
+        <a href="#">Paraguai</a>
+        
+		<!-- scripts -->
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>    
+        	console.log("Essa página contém " + $("a").length + " links total");
+            console.log("Essa página contém " + $("nav a").length + " links em 'nav'");
+
+            //Usando jQuery para mudar o CSS
+            $(function() {
+                $("nav a").css("color", "red");
+                $("nav a").css("text-decoration", "none");
+
+                /* As duas funções acima poderiam ser resumidas em uma, já que ambas
+                tratam "nav a": */
+                // $("nav a").css("color", "red").css("text-decoration", "none");
+                
+                /* OBS: Seria possível, também, continuar adicionando alterações com 
+                .css que seriam destinadas à "nav a"*/
+
+                // Mudando específicos
+                $("nav a:first").css("color", "green");
+                $("nav a:last").css("color", "orange");
+                $("nav a:nth(2)").css("color", "black"); // obedece ao array
+                // ... odd, even
+                $("nav a:contains('Argentina')").css("color", "purple"); // contém determinada informação
+            })
+        </script>   
+                
+    </body>
+</html>
