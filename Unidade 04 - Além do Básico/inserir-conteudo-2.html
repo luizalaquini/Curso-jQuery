@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Criar e Pegar Conteúdo</title>
+        
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+			$( function(e) {
+                //Outra forma de fazer o que foi feito na aula anterior:
+                //Adicionar depois:
+                $("ul#listacursos").append("<li>Curso Bootstrap Fundamental</li>")
+                //Adicionar antes:
+                $("ul#listacursos").prepend("<li>Curso PHPFundamental</li>")
+
+                //Adicionar conteúdo ao 'h1' já existente:
+                $("h1").html("Formação Desenvolvimento Web Completo");
+			} )
+		</script>
+        
+    </head>
+
+    <body>
+    	<h1></h1>
+    
+		<ul id="listacursos">
+            <li>Curso HTML5 Essencial</li>
+            <li>Curso CSS3 Essencial</li>
+            <li>Curso Javascript Essencial</li>
+            <li>Curso jQuery Fundamental</li>
+        </ul>
+
+    </body>
+
+</html>

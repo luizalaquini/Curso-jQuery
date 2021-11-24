@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Inserir Conteúdo</title>
+        
+        <style>
+			ul		{ margin:0; padding:0; list-style:none }
+			li		{ display:inline-block; margin-right:10px }
+		</style>
+        
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+			$( function(e) {
+                //Adicionar depois:
+                $("<li><img src='imagem/foto4.jpg'></li>").insertAfter("li:last-child");
+                //Adicionar antes:
+                $("<li><img src='imagem/foto5.jpg'></li>").insertBefore("li:first-child");
+                $("<li><img src='imagem/foto6.jpg'></li>").insertBefore("li:nth(3)");
+			} )
+		
+		</script>
+        
+    </head>
+
+    <body>
+		<ul>
+        	<li><img src="imagem/foto1.jpg"></li>
+            <li><img src="imagem/foto2.jpg"></li>
+            <li><img src="imagem/foto3.jpg"></li>
+            
+        </ul>
+
+    </body>
+
+</html>
