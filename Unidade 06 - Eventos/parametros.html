@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Enviar Parâmetros para uma Função com Evento</title>
+        
+        <style>
+			#janela { border:1px solid #666; width:200px; height:200px; margin-top:10px }
+		</style>
+        
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+            /* SEM PASSAR PARÂMETROS */
+            /*function aplicarAzul(){
+                $('#janela').css('background-color', 'blue');
+            }
+            function aplicarVermelho(){
+                $('#janela').css('background-color', 'red');
+            }
+            function aplicarVerde(){
+                $('#janela').css('background-color', 'green');
+            }
+
+            $(function(){
+                $('#botaoazul').on("click", aplicarAzul);
+                $('#botaovermelho').on("click", aplicarVermelho);
+                $('#botaoverde').on("click", aplicarVerde);
+            })*/
+
+            /* PASSANDO PARÂMETROS ==>> + ELEGANTE */
+            /*function aplicarCor(e){
+                $cor = e.data.cor;
+                $('#janela').css('background-color', $cor);
+            }
+
+            $(function(){
+                $('#botaoazul').on("click", {cor:'blue'}, aplicarCor);
+                $('#botaovermelho').on("click", {cor:'red'}, aplicarCor);
+                $('#botaoverde').on("click", {cor:'green'}, aplicarCor);
+            })*/
+
+            /* PASSANDO + DE 1 PARÂMETRO*/
+            function aplicarCor(e){
+                $('#janela').css('background-color', e.data.cor);
+                $('#janela').css('width', e.data.largura);
+            }
+
+            $(function(){
+                $('#botaoazul').on("click", {cor:'blue', largura:'250px'}, aplicarCor);
+                $('#botaovermelho').on("click", {cor:'red', largura:'260px'}, aplicarCor);
+                $('#botaoverde').on("click", {cor:'green', largura:'270px'}, aplicarCor);
+            })
+	 	</script>        
+    </head>
+    
+    
+
+    <body>
+    	<input type="submit" id="botaoazul" 	value="azul">
+        <input type="submit" id="botaovermelho" value="vermelho">
+        <input type="submit" id="botaoverde" 	value="verde">
+        
+        <div id="janela"></div>
+    </body>
+</html>

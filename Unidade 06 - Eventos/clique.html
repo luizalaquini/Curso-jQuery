@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Evento de Clique</title>
+        
+        <script src="jquery-3.6.0.min.js"></script>
+        <script>
+                /*Duas formas diferentes de chamar a mesma função "click"*/
+                $(function(){
+                    $('#cursohtml').click(function(){ /*Diretamente*/
+                        alert("Clicou no botão HTML");
+                    })
+
+                    $('#cursocss').on("click", function(){ /*Indiretamente*/
+                        alert("Clicou no botão CSS");
+                    })  /*O interessante do "on" é que ele permite mudar de funções rapidamente*/
+                    
+                    /*Já o "off" funciona como bloqueio do evento: */
+                    function mostrarMensagem(){
+                        alert("Passou o mouse em cima do CSS");
+                        $('#cursocss').off("mouseover", mostrarMensagem) /*turn off the function*/
+                    }
+                    $('#cursocss').on("mouseover", mostrarMensagem) /*Chamada*/
+                    /*O resultado aqui foi que chamamos a função, ela deu o alerta uma vez e depois se desligou, permitindo a ocorrencia do evento uma única vez*/
+
+                    /*Se fizéssemos da seguinte forma, matariamos qualquer evento direcionado ao elemento "cursocss":
+                    function mostrarMensagem(){
+                        alert("Passou o mouse em cima do CSS");
+                        $('#cursocss').off(); <<<<=====
+                    }
+                    */
+                })
+		</script>        
+    </head>
+
+    <body>
+        <input type="button" id="cursohtml" value="Curso HTML5" />
+        <input type="button" id="cursocss" 	value="Curso CSS3" />    
+    </body>
+
+</html>
