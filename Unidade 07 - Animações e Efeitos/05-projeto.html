@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Projeto da Unidade: Image Rotator</title>
+        <style>
+            #principal { 
+                position: absolute; 
+                height: 200px; 
+                clip:rect(0 200px 200px 0); 
+            }
+
+			#janela { 
+                position:relative; 
+                height:200px; 
+                background-color:#069; 
+                top: 0; left: 0; 
+            }
+
+            #janela img { float: left;}
+
+            #info {
+                position:absolute;
+                top: 300px;
+            }
+
+		</style>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+        <script>
+
+            var limite;
+
+            function moverFotos(){
+                $('#janela').animate({left:"-=200"}, 500, function(e){
+                    if ($('#janela').position().left == limite) {
+                        $('#janela').css('left', 0);
+                    }
+                });
+            }
+
+			$( function(e) {
+                limite = $('#janela img').length * $('#janela img').width() * -1;
+                //alert(limite);
+
+                $('#janela').append('<img>'); // adiciona imagem ao final
+                $('#janela img:last').attr('src', 'imagens/foto1.jpg');
+
+                setInterval(moverFotos, 2000); // chama a função a cada 2s
+			});	
+		</script>        
+    </head>
+
+    <body>
+        <div id="principal">
+            <div id="janela">
+                <img src="imagens/foto1.jpg" alt="Foto 1">
+                <img src="imagens/foto2.jpg" alt="Foto 2">
+                <img src="imagens/foto3.jpg" alt="Foto 3">
+                <img src="imagens/foto4.jpg" alt="Foto 4">
+                <img src="imagens/foto5.jpg" alt="Foto 5">
+            </div>
+        </div>
+    </body>
+
+</html>
